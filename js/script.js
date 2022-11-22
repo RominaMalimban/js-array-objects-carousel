@@ -47,16 +47,17 @@ images.forEach((element) => {
     
     let item = ` <div class="item">
                     <img src="${img}">
-                    
-                    <div>${titolo}</div>
-                    <div>${descrizione}</div>
-                    
+                    <div class="testo">
+                        <div>${titolo}</div>
+                        <div>${descrizione}</div>
+                    </div>
+              
                 </div>`
 
     
     wrapper.innerHTML += item;
     
-    titolo.classList.add("testo")
+   
 });
 
 
