@@ -45,17 +45,18 @@ images.forEach((element) => {
     let titolo = element.title;
     let descrizione = element.text;
     
-   
-    let item = `<div class="item">
+    let item = ` <div class="item">
                     <img src="${img}">
+                    
                     <div>${titolo}</div>
                     <div>${descrizione}</div>
+                    
                 </div>`
 
     
     wrapper.innerHTML += item;
     
-    
+    titolo.classList.add("testo")
 });
 
 

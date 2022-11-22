@@ -40,8 +40,12 @@ img{
 }
 
 .testo {
-    color: #000;
+    color: #fff;
     position: absolute;
+    bottom: 0;
+    right: 0;
+    /* debug */
+    background-color: coral;
 }
 
 button{
