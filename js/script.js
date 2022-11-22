@@ -38,7 +38,7 @@ const images = [
 // creo il mio div item:
 let wrapper = document.querySelector(".items-container");
 
-
+// aggiungo immagini e testo:
 images.forEach((element) => {
     
     let item = ` <div class="item">
@@ -63,6 +63,7 @@ divItem[0].classList.add("active");
 // creo variabile dell'indice:
 let activeItem = 0;
 
+// **ciclo infinito** ai click:
 document.getElementById("next").addEventListener("click",
     function(){
         if(activeItem == divItem.length -1){
