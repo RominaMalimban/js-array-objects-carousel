@@ -45,13 +45,16 @@ images.forEach((element) => {
                     <img src="${element.image}">
                     <div class="testo">
                         <div class="titolo">${element.title}</div>
-                        <div>${element.text}</div>
+                        <div class="subtitle">${element.text}</div>
                     </div>
               
                 </div>`
 
     wrapper.innerHTML += item;
 });
+
+// Milestone 2:
+// Aggiungere il **ciclo infinito** del carosello. Ovvero se l’img attiva è la prima e l’utente clicca la freccia prev, l’img che deve attivarsi sarà l’ultima e viceversa per l’ultima img se l’utente clicca la freccia next.
 
 // creo una variabile e ci salvo i div item e associo alla prima immagine la classe active:
 let divItem = document.getElementsByClassName("item");
@@ -60,31 +63,28 @@ divItem[0].classList.add("active");
 // creo variabile dell'indice:
 let activeItem = 0;
 
-// creo le variabili per i bottoni next e prev:
-let next = document.getElementById("next");
-let prev = document.getElementById("prev");
-
-// creo funzione per click su bottone next:
-next.addEventListener("click",
+document.getElementById("next").addEventListener("click",
     function(){
-
-        // creo la condizione per passare la classe active: 
-        if(activeItem < divItem.length -1){
-            divItem[activeItem].classList.remove("active");
+        if(activeItem == divItem.length -1){
+            activeItem = 0;
+        }else{
             activeItem++;
-            divItem[activeItem].classList.add("active");
-        };
-        // nascondo il bottone next:
-        if(activeItem == divItem.length - 1){
-            next.style.display = "none";
-        };
-
-        // faccio comparire il bottone prev:
-        if(activeItem > 0){
-            prev.style.display = "block";
         }
-    }
-); 
 
-// Milestone 2:
-// Aggiungere il **ciclo infinito** del carosello. Ovvero se l’img attiva è la prima e l’utente clicca la freccia prev, l’img che deve attivarsi sarà l’ultima e viceversa per l’ultima img se l’utente clicca la freccia next.
+        document.querySelector(".active").classList.remove("active");
+        divItem[activeItem].classList.add("active");
+    }
+);
+
+document.getElementById("prev").addEventListener("click",
+    function(){
+        if(activeItem == 0){
+            activeItem = divItem.length -1;
+        }else{
+            activeItem--;
+        }
+
+        document.querySelector(".active").classList.remove("active");
+        divItem[activeItem].classList.add("active");
+    }
+);
