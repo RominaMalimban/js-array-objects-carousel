@@ -39,6 +39,11 @@ img{
     object-position: 100% 40%;
 }
 
+.testo {
+    color: #000;
+    position: absolute;
+}
+
 button{
     width: 30px;
     height: 30px;
